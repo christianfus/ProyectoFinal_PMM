@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_factura"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7ecc02"
+    android:paddingBottom="16sp"
+    android:paddingLeft="64sp"
+    android:paddingRight="64sp"
+    android:paddingTop="16sp"
+    tools:context="com.example.christian.proyectofin_pmm.Factura">
+
+    <ImageView
+        android:id="@+id/imagepizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/modelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/preciobase"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imagepizza"
+        android:layout_marginBottom="10dp"
+        android:text="Kebab:"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/amodelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/modelo"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/modelo"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/preciobase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modelo"
+        android:layout_marginBottom="10dp"
+        android:text="Precio base: "
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/extras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/preciobase"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/preciobase"
+        android:layout_marginBottom="10dp"
+        android:text="Extra:"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/envio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/unidades"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/unidades"
+        android:layout_marginBottom="10dp"
+        android:text="Envio: "
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/costetotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/preciobase"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/envio"
+        android:layout_marginBottom="10dp"
+        android:text="Coste total:"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/horapedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/costetotal"
+        android:text="Hora pedido"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/aextras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/preciobase"
+        android:layout_toEndOf="@+id/preciobase"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/aunidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/aextras"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/extras"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+    <CheckBox
+        android:id="@+id/hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/costetotal"
+        android:layout_toEndOf="@+id/horapedido" />
+
+    <TextView
+        android:id="@+id/unidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/extras"
+        android:layout_marginBottom="10dp"
+        android:layout_toStartOf="@+id/aextras"
+        android:text="Unidades:"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextClock
+        android:id="@+id/reloj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/hora"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/apreciobase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/preciobase"
+        android:layout_alignBottom="@+id/preciobase"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/preciobase"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/aenvio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/envio"
+        android:layout_alignBottom="@+id/envio"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/envio"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/acostetotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/costetotal"
+        android:layout_alignBottom="@+id/costetotal"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/costetotal"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/vuelta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:text="Vuelta"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/vuelta"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:text="¡Gracias por su compra!" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/kebab4" />
+</RelativeLayout>
