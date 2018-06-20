@@ -1,8 +1,11 @@
 package com.example.christian.proyectofin_pmm;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +28,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    SQLiteOpenHelper openHelper;
+    SQLiteDatabase db;
+
     private Kebabs[] datos = new Kebabs[]{
             new Kebabs("KEBAB ", "DE POLLO", 4, R.drawable.kebab1),
             new Kebabs("KEBAB ", "DE TERNERA", 3, R.drawable.kebab2),
@@ -42,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        openHelper = new SQLiteDBHelper(this);
 
         //Para rellenar el spinner
         adaptador = new AdaptadorKebabs(this);
@@ -64,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent paso = new Intent(MainActivity.this, Factura.class);
 
                 Bundle pasoobjetos = new Bundle();
@@ -125,12 +132,27 @@ public class MainActivity extends AppCompatActivity {
                 paso.putExtra("Total",String.valueOf(total));
                 startActivity(paso);
 
-
+                db = openHelper.getWritableDatabase();
+                double kbb_precio = total;
+                String kbb_name = datos[kebabs.getSelectedItemPosition()].getnombre();
+                String kbb_desc = datos[kebabs.getSelectedItemPosition()].getdescripcion();
+                InsertData(kbb_precio, kbb_name, kbb_desc);
 
                 String mensaje = "Total = " + total;
                 Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void InsertData(double kbb_precio, String kbb_name, String kbb_desc) {
+
+        ContentValues values = new ContentValues();
+        values.put(SQLiteDBHelper.COLUMN_NAME,kbb_name);
+        values.put(SQLiteDBHelper.COLUMN_DESC,kbb_desc);
+        values.put(SQLiteDBHelper.COLUMN_PRECIO,kbb_precio);
+        ;
+        long id = db.insert(SQLiteDBHelper.TABLE_NAME,null,values);
+
     }
 
     public boolean onCreateOptionsMenu (Menu menu){

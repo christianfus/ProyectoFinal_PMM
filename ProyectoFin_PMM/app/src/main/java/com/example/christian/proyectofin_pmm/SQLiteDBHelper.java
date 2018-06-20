@@ -49,8 +49,6 @@ public class SQLiteDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TABLE_PEDIDOS);
         sqLiteDatabase.execSQL(CREATE_TABLE_QUERY);
 
-        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_NAME + " ('kebab','descripcion','precio') VALUES" +
-                "('Kebab','de Ternera',3)");
         sqLiteDatabase.execSQL("INSERT INTO " + TABLE_NAME_2 + " ('fullname','email','password','mobile') VALUES" +
                 "('a','a','a','a')");
 
