@@ -52,22 +52,18 @@ public class Coordenadas extends Fragment {
             @Override
             public void onClick(View view) {
 
-                final String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=38.1525,-0.88972&sensor=false";
+                final String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=39.4561165,-0.3545661&sensor=false";
                 direccion=url;
                 Toast.makeText(getView().getContext(), direccion, Toast.LENGTH_SHORT).show();
-
 
                 new AsyncHttpTask().execute(url);
 
             }
         });
 
-
         return RootView;
 
-
     }
-
 
     public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
         @Override
@@ -77,27 +73,21 @@ public class Coordenadas extends Fragment {
             HttpURLConnection urlConnection = null;
 
             Integer result = 0;
+
             try {
+
                 URL url = new URL(params[0]);
-
                 urlConnection = (HttpURLConnection) url.openConnection();
-
                 urlConnection.setRequestProperty("Content-Type", "application/json");
-
                 urlConnection.setRequestProperty("Accept", "application/json");
-
                 urlConnection.setRequestMethod("GET");
-
                 int statusCode = urlConnection.getResponseCode();
 
                 if (statusCode ==  200) {
 
                     inputStream = new BufferedInputStream(urlConnection.getInputStream());
-
                     String response = convertInputStreamToString(inputStream);
-
                     parseResult(response);
-
                     result = 1;
 
                 }else{
