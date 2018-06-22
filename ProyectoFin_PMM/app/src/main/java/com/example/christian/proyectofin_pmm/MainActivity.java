@@ -170,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent pedido = new Intent(MainActivity.this, PedidosActivity.class);
                 startActivity(pedido);
                 return true;
+            case R.id.map:
+                Intent map = new Intent(MainActivity.this, Activity_Fragmento.class);
+                startActivity(map);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

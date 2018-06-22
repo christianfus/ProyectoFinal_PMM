@@ -6,4 +6,6 @@
         android:id="@+id/acerca" />
     <item android:title="Registro Pedidos"
         android:id="@+id/pedidos" />
+    <item android:title="Kebabs cerca de ti"
+        android:id="@+id/map" />
 </menu>

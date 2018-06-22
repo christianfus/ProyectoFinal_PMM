@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.christian.proyectofin_pmm">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +16,15 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCtQNvbzYlliUthKPvgaMu00BAQxbb1iI4" />
+
         <activity
             android:name=".RegisterAccountActivity"
             android:screenOrientation="portrait" />
@@ -24,7 +34,8 @@
         <activity android:name=".Dibujar" />
         <activity android:name=".Factura" />
         <activity android:name=".AcercaDe" />
-        <activity android:name=".PedidosActivity"></activity>
+        <activity android:name=".PedidosActivity" />
+        <activity android:name=".Activity_Fragmento"></activity>
     </application>
 
 </manifest>
